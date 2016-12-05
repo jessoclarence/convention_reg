@@ -1,0 +1,39 @@
+var sel_btn_family_name = "input#btn_family_name";
+var sel_txt_family_name = "input#txt_family_name";
+var sel_btn_add_person_html = "input#btn_add_person_html";
+var sel_html_add_person_sec = "#html_add_person_sec";
+var sel_html_person_info_sec = "#html_person_info_sec";
+
+var txt_family_name = $(sel_txt_family_name)[0];
+var btn_family_name = $(sel_btn_family_name)[0];
+var btn_add_person_html = $(sel_btn_add_person_html)[0];
+var html_add_person_sec = $(sel_html_add_person_sec)[0];
+var html_person_info_sec = $(sel_html_person_info_sec)[0];
+
+var family_id = -1;
+var person_list = [];
+
+function do_onload() {
+		$(sel_btn_family_name).on("click", add_family_submit);
+		$(sel_btn_add_person_html).on("click", add_person_html);
+}
+
+function add_person_html() {
+		person = new Person(family_id);
+		person.add_html_self_to_parent(html_add_person_sec);
+}
+
+function add_family_submit(event) {
+	$.ajax({
+		url: "/regmain/add_family/",
+		data: {
+			name: txt_family_name.value
+		},
+		type: "POST",
+		dataType: "json"
+	}).done(function(json) {
+		family_id = json.id;
+	})
+}
+
+do_onload();
