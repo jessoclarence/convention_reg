@@ -20,7 +20,7 @@ function do_onload() {
 
 function add_person_html() {
 		person = new Person(family_id);
-		person.add_html_self_to_parent(html_add_person_sec);
+		person.render(html_add_person_sec);
 }
 
 function add_family_submit(event) {

@@ -17,6 +17,7 @@ var TMPL_PERSON = '' +
 		'             class="btn_person_submit"/>' +
 		'    </div>' +
 		'  </div>' +
+		'  <div class="church-container"></div>' +
 		'</div>'
 
 var Person = function(family_id) {
@@ -38,7 +39,7 @@ var Person = function(family_id) {
 		this.btn_submit = null;
 }
 
-Person.prototype.add_html_self_to_parent = function(container) {
+Person.prototype.render = function(container) {
 		this.container = container;
 		container.append(this.html_node);
 
@@ -82,7 +83,7 @@ Person.prototype.submit = function() {
 				dataType: "json"
 		}).done(function(json) {
 				p.process_response(json);
-		})
+		});
 		return true;
 }
 
