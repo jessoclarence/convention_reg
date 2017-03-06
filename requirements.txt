@@ -1,6 +1,7 @@
-requests
-Django==1.8
-djangorestframework
-markdown
-django-filter
+Django==1.10
 dateparser
+django-filter
+djangorestframework
+gunicorn
+markdown
+requests

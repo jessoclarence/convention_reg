@@ -1,9 +1,11 @@
 import functools
 import requests
 
+from convreg import constants
 
-USERNAME = 'rockadmin'
-PASSWORD = '507OrangeSt'
+
+USERNAME = constants.USERNAME
+PASSWORD = constants.PASSWORD
 SESSION = None
 
 
